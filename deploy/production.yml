@@ -20,12 +20,12 @@ variables:
 pr: none
   
 steps:
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'AGROFENIX-cosmo'
-    scannerMode: 'MSBuild'
-    projectKey: 'AGROFENIX-Cosmo'
-    projectName: 'AGROFENIX-Cosmo'
+  - task: SonarQubePrepare@4
+    inputs:
+      SonarQube: 'AGROFENIX-cosmo'
+      scannerMode: 'MSBuild'
+      projectKey: 'AGROFENIX-Cosmo'
+      projectName: 'AGROFENIX-Cosmo'
 
   - task: gitversion/setup@0
     inputs:
