@@ -22,7 +22,7 @@ pr: none
 steps:
   - task: SonarQubePrepare@4
     inputs:
-      SonarQube: 'AGROFENIX-cosmo'
+      SonarQube: 'AGROFENIX-Cosmo'
       scannerMode: 'MSBuild'
       projectKey: 'AGROFENIX-Cosmo'
       projectName: 'AGROFENIX-Cosmo'
