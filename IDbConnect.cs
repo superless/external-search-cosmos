@@ -1,7 +1,7 @@
-﻿using trifenix.connect.entities.cosmos;
-using trifenix.connect.input;
-using trifenix.connect.interfaces.db.cosmos;
+﻿using trifenix.connect.input;
+using trifenix.connect.interfaces.db;
 using trifenix.connect.interfaces.graph;
+using trifenix.model;
 
 namespace trifenix.connect.interfaces.external
 {
@@ -18,15 +18,9 @@ namespace trifenix.connect.interfaces.external
         /// </summary>
         /// <typeparam name="T">elemento de base de datos de persistencia</typeparam>
         /// <returns>Reposirio de base de datos para tipo T</returns>
-        IMainGenericDb<T> GetMainDb<T>() where T : DocumentBase;
+        IMainGenericDb<T> GetMainDb<T>() where T : DocumentDb;
 
-        /// <summary>
-        /// Operaciones de base de datos comunes, esto es dependiente de CosmosDb
-        /// Dado que el retorno es un IQueryable que usa un método estático para convertirlo en lista       
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        ICommonDbOperations<T> GetCommonDbOp<T>() where T : DocumentBase;
+       
 
         /// <summary>
         /// Api de identidades de Microsoft.
@@ -35,7 +29,7 @@ namespace trifenix.connect.interfaces.external
 
 
         // Validaciones de input, usando los atributos del modelo.
-        IValidatorAttributes<T_INPUT> GetValidator<T_INPUT, T_DB>() where T_INPUT : InputBase where T_DB : DocumentBase;
+        IValidatorAttributes<T_INPUT> GetValidator<T_INPUT, T_DB>() where T_INPUT : InputBase where T_DB : DocumentDb;
 
         
 

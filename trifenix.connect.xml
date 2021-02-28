@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>trifenix.connect.interfaces.external</name>
+    </assembly>
+    <members>
+        <member name="T:trifenix.connect.interfaces.external.IDbConnect">
+            <summary>
+            Elementos necesarios para operaciones crud en base de datos.
+            Las operaciones son dependientes de cosmos db
+            debido principalmente a la manera que usa IQueryable cosmonaut.
+            </summary>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IDbConnect.GetMainDb``1">
+            <summary>
+            Elemento principal de base de datos
+            </summary>
+            <typeparam name="T">elemento de base de datos de persistencia</typeparam>
+            <returns>Reposirio de base de datos para tipo T</returns>
+        </member>
+        <member name="P:trifenix.connect.interfaces.external.IDbConnect.GraphApi">
+            <summary>
+            Api de identidades de Microsoft.
+            </summary>
+        </member>
+        <member name="T:trifenix.connect.interfaces.external.IGenericOperation`2">
+            <summary>
+            Operaciones de guardado en base de datos de busqueda y persistencia
+            las bases de datos de busqueda usan entitySearch.
+            </summary>
+            <typeparam name="T">tipo de dato de persistencia</typeparam>
+            <typeparam name="T2">tipo de base de entrada de usuario</typeparam>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IGenericOperation`2.Get(System.String)">
+            <summary>
+            obtiene un elemento de la base de datos de persistencia.
+            Bajo el modelo, las lecturas se realizan bajo entitySearch
+            </summary>
+            <param name="id">identificador del elemento</param>
+            <returns>Resultado Tipo Get con el elemento dentro</returns>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IGenericOperation`2.Validate(`1)">
+            <summary>
+            Valida el elemento de entrada de usuario.
+            Normalmente se usará el validador automatizado.
+            pero podrá poder implementar el propio.
+            </summary>
+            <param name="input">elemento de entrada de usuario</param>
+            <returns></returns>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IGenericOperation`2.SaveDb(`0)">
+            <summary>
+            Guarda una entidad en la base de datos, si el id no existe, inserta, sino actualiza.
+            </summary>
+            <param name="entity">entidad de base de datos de persistencia a guardar</param>
+            <returns></returns>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IGenericOperation`2.SaveSearch(`0)">
+            <summary>
+            Guarda elemento de base de datos de persistencia en una base de datos de entitySearch,
+            esto implica convertir el elemento de base de datos en uno o más entitySearch antes de guardar.
+            </summary>
+            <param name="entity">entidad de base de datos de persistencia</param>
+            <returns>Resultado Post con el identificador del elemento creado</returns>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IGenericOperation`2.SaveInput(`1)">
+            <summary>
+            Guarda una entidad ingresada por usuario,
+            por tanto debe
+            1. Validar.
+            2. Convertir en elemento de base de datos de persitencia.
+            3. Guardar en la base de datos de persistencia
+            4. Convertir el elemento de base de datos de persistencia en uno o más entitySearch.
+            5. Guardar en base de datos de busqueda basada en entitySearch.
+            
+            Como se puede apreciar, se guarda primero en la base de datos de persistencia, si falla no lo guardará en la base de datos de busqueda
+            </summary>
+            <param name="entityInput">entidad ingresada por usuario</param>
+            <returns>PostResult con el identificador del elemento guardado</returns>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IGenericOperation`2.Remove(System.String)">
+            <summary>
+            Elimina un elemento de la base de datos de persistencia y de busqueda (entitySearch)
+            </summary>
+            <param name="id">identificador del elemento a eliminar</param>
+            <returns></returns>
+        </member>
+        <member name="T:trifenix.connect.interfaces.external.IValidatorAttributes`1">
+            <summary>
+            Interface para validar elementos genéricos,
+            generalmente dependiendo de los atributos que tenga
+            </summary>
+        </member>
+        <member name="M:trifenix.connect.interfaces.external.IValidatorAttributes`1.Valida(`0)">
+            <summary>
+            Valida un elemento
+            </summary>
+            <typeparam name="T">Elemento de entrada</typeparam>
+            <typeparam name="T2">Elemento en la base de datos</typeparam>
+            <param name="elemento">Elemento a validar</param>
+            <returns>True si validacion es correcta y una colección de mensajes en caso de no ser válido</returns>
+        </member>
+    </members>
+</doc>

@@ -4,6 +4,10 @@
     <None Include="images\logo.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="trifenix.connect.interfaces" Version="0.8.17" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>  
     <PackageIcon>logo.png</PackageIcon>
@@ -52,11 +56,5 @@
       <BuildOutputInPackage Include="@(_ReferenceCopyLocalPaths)" TargetPath="%(_ReferenceCopyLocalPaths.DestinationSubDirectory)" />
     </ItemGroup>
   </Target>
-
-  <ItemGroup>
-    <PackageReference Include="trifenix.connect.entities.cosmos" Version="0.8.59" />
-    <PackageReference Include="trifenix.connect.interfaces.db.cosmos" Version="0.8.50" />
-    <PackageReference Include="trifenix.connect.interfaces.search" Version="0.8.48" />
-  </ItemGroup>
 
 </Project>

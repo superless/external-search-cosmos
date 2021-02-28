@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using trifenix.connect.entities.cosmos;
+
 using trifenix.connect.input;
-using trifenix.connect.interfaces.db.cosmos;
-using trifenix.connect.mdm.entity_model;
+using trifenix.connect.interfaces.db;
+
 
 namespace trifenix.connect.interfaces.external
 {

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using trifenix.connect.entities.cosmos;
+
 using trifenix.connect.input;
 using trifenix.connect.interfaces.log;
 using trifenix.connect.mdm.containers;
+using trifenix.model;
 
 namespace trifenix.connect.interfaces.external
 {
@@ -14,7 +15,7 @@ namespace trifenix.connect.interfaces.external
     /// </summary>
     /// <typeparam name="T">tipo de dato de persistencia</typeparam>
     /// <typeparam name="T2">tipo de base de entrada de usuario</typeparam>
-    public interface IGenericOperation<T,T2> : ILogSimpleQuery where T : DocumentBase where T2 : InputBase {
+    public interface IGenericOperation<T,T2> : ILogSimpleQuery where T : DocumentDb where T2 : InputBase {
 
         /// <summary>
         /// obtiene un elemento de la base de datos de persistencia.
