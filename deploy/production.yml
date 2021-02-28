@@ -61,19 +61,7 @@ steps:
     displayName: dotnet pack
     
 
-  # genera paquete usando la versión proporcionada por gitversion
-  - task: DotNetCoreCLI@2
-    displayName: 'dotnet pack' 
-    inputs: 
-      command: pack
-      packagesToPack: '**/$(name-project).csproj'       
-      arguments: '--configuration $(BuildConfiguration) /p:Version=$(SemVer)' 
-      versioningScheme: byEnvVar 
-      versionEnvVar: SemVer
-  - task: SonarQubeAnalyze@4
-  - task: SonarQubePublish@4
-    inputs:
-      pollingTimeoutSec: '300'
+  
 
   # publica paquete para publicar.
   - task: PublishBuildArtifacts@1
