@@ -25,12 +25,7 @@ pr: none
 
   
 steps:
-  - task: SonarQubePrepare@4
-    inputs:
-      SonarQube: 'AGROFENIX-Cosmo'
-      scannerMode: 'MSBuild'
-      projectKey: 'AGROFENIX-Cosmo'
-      projectName: 'AGROFENIX-Cosmo'
+  
 
   # generamos versión del paquete.
   - task: PowerShell@2
