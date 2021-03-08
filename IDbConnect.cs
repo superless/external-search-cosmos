@@ -1,7 +1,7 @@
 ﻿using trifenix.connect.input;
 using trifenix.connect.interfaces.db;
 using trifenix.connect.interfaces.graph;
-using trifenix.model;
+using trifenix.connect.model;
 
 namespace trifenix.connect.interfaces.external
 {

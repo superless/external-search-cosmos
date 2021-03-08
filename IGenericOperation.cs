@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using trifenix.connect.input;
 using trifenix.connect.interfaces.log;
 using trifenix.connect.mdm.containers;
-using trifenix.model;
+using trifenix.connect.model;
 
 namespace trifenix.connect.interfaces.external
 {
